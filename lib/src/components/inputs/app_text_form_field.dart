@@ -17,12 +17,14 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final FormFieldValidator<String>? validator;
   final ValueChanged<String>? onChanged;
+  final VoidCallback? onTap;
 
   final AppInputVariant variant;
   final AppInputSize size;
   final AppInputType type;
 
   final bool enabled;
+  final bool readOnly;
   final Widget? prefix;
   final Widget? suffix;
 
@@ -36,10 +38,12 @@ class AppTextFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.onChanged,
+    this.onTap,
     this.variant = AppInputVariant.defaultInput,
     this.size = AppInputSize.md,
     this.type = AppInputType.text,
     this.enabled = true,
+    this.readOnly = false,
     this.prefix,
     this.suffix,
     this.maxLines = 1,
@@ -66,12 +70,14 @@ class AppTextFormField extends StatelessWidget {
         TextFormField(
           controller: controller,
           enabled: !isDisabled,
+          readOnly: readOnly,
           obscureText: type == AppInputType.password,
           maxLines: type == AppInputType.password ? 1 : maxLines,
           keyboardType: _keyboardType,
           inputFormatters: _inputFormatters,
           validator: validator,
           onChanged: onChanged,
+          onTap: onTap,
           decoration: _decoration(context),
         ),
 

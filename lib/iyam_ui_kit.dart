@@ -51,6 +51,8 @@ export 'src/components/inputs/app_text_form_field.dart';
 export 'src/components/inputs/app_input_variant.dart';
 export 'src/components/inputs/app_input_size.dart';
 export 'src/components/inputs/app_input_type.dart';
+export 'src/components/inputs/advanced/app_date_picker_field.dart';
+export 'src/components/inputs/advanced/app_select_field.dart';
 
 //
 // ==============================
@@ -70,3 +72,24 @@ export 'src/components/surfaces/app_card.dart';
 export 'src/components/surfaces/app_card_header.dart';
 export 'src/components/surfaces/app_card_footer.dart';
 export 'src/components/surfaces/app_surface.dart';
+
+//
+// ==============================
+// MEDIA / IMAGE
+// ==============================
+//
+export 'src/components/media/app_image.dart';
+export 'src/components/media/app_image_source.dart';
+
+// AVATAR & MEDIA
+export 'src/components/media/avatar/app_avatar.dart';
+export 'src/components/media/gallery/app_image_grid.dart';
+
+// SHIMMER
+export 'src/components/states/shimmer/app_shimmer.dart';
+
+// FEEDBACK
+export 'src/components/feedback/app_badge.dart';
+export 'src/components/feedback/app_label.dart';
+export 'src/components/feedback/app_chip.dart';
+export 'src/components/feedback/toast/app_toast.dart';

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import '../app_text_form_field.dart';
 
-class AppDatePickerField extends StatelessWidget {
+class AppSelectField<T> extends StatelessWidget {
   final String label;
-  final DateTime? value;
-  final ValueChanged<DateTime> onChanged;
+  final T? value;
+  final List<AppSelectItem<T>> items;
+  final ValueChanged<T> onChanged;
 
-  const AppDatePickerField({
+  const AppSelectField({
     super.key,
     required this.label,
+    required this.items,
     required this.onChanged,
     this.value,
   });
@@ -17,27 +19,43 @@ class AppDatePickerField extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextFormField(
       label: label,
+      readOnly: true,
       controller: TextEditingController(
-        text: value != null ? _formatDate(value!) : '',
+        text: items
+            .firstWhere(
+              (e) => e.value == value,
+              orElse: () => const AppSelectItem(label: '', value: null),
+            )
+            .label,
       ),
-      suffix: const Icon(Icons.calendar_today),
-      enabled: false,
-      onTap: () async {
-        final DateTime? result = await showDatePicker(
-          context: context,
-          initialDate: value ?? DateTime.now(),
-          firstDate: DateTime(2000),
-          lastDate: DateTime(2100),
-        );
-
-        if (result != null) {
-          onChanged(result);
-        }
-      },
+      suffix: const Icon(Icons.arrow_drop_down),
+      onTap: () => _showBottomSheet(context),
     );
   }
 
-  String _formatDate(DateTime date) {
-    return '${date.day}/${date.month}/${date.year}';
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (_) => ListView(
+        children: items
+            .map(
+              (e) => ListTile(
+                title: Text(e.label),
+                onTap: () {
+                  Navigator.pop(context);
+                  onChanged(e.value as T);
+                },
+              ),
+            )
+            .toList(),
+      ),
+    );
   }
+}
+
+class AppSelectItem<T> {
+  final String label;
+  final T? value;
+
+  const AppSelectItem({required this.label, required this.value});
 }
