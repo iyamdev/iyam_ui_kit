@@ -1,38 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:iyam_ui_kit/iyam_ui_kit.dart';
+import 'pages/form_demo_page.dart';
+import 'pages/button_demo_page.dart';
+import 'pages/input_demo_page.dart';
+import 'pages/surface_demo_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ExampleApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ExampleApp extends StatelessWidget {
+  const ExampleApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemePresets.roundedCorporate(),
-      home: const HomePage(),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.corporate,
+      home: const ExampleHomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class ExampleHomePage extends StatelessWidget {
+  const ExampleHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Iyam UI Kit')),
+      appBar: AppBar(title: const Text('Iyam UI Kit – Example')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            AppButton.primary(label: 'Simpan', onPressed: () {}),
+            AppButton.primary(
+              label: 'Form Example',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const FormDemoPage()),
+                );
+              },
+            ),
             const SizedBox(height: 12),
-            AppButton.danger(label: 'Hapus', onPressed: () {}),
+            AppButton.primary(
+              label: 'Button Example',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const ButtonDemoPage()),
+                );
+              },
+            ),
             const SizedBox(height: 12),
-            AppButton.outline(label: 'Batal', onPressed: () {}),
+            AppButton.primary(
+              label: 'Input Example',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const InputDemoPage()),
+                );
+              },
+            ),
+            const SizedBox(height: 12),
+            AppButton.primary(
+              label: 'Card & Surface Example',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const SurfaceDemoPage()),
+                );
+              },
+            ),
           ],
         ),
       ),
