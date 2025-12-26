@@ -1,3 +1,5 @@
+export 'src/core/extensions/context_extension.dart';
+
 // Themes
 export 'src/core/theme/theme_presets.dart';
 export 'src/core/theme/theme_extensions.dart';
