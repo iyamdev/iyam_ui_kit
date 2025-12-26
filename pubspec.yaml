@@ -1,7 +1,9 @@
 name: iyam_ui_kit
 description: "A theme-driven Flutter UI Kit focused on consistency, customization, and scalability."
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/iyamdev/iyam_ui_kit
+repository: https://github.com/iyamdev/iyam_ui_kit
+issue_tracker: https://github.com/iyamdev/iyam_ui_kit/issues
 
 environment:
   sdk: ^3.10.4
