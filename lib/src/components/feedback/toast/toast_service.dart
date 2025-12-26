@@ -72,7 +72,6 @@ class _ToastContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = context.style;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     final bgColor = _background(style);
     final icon = _icon();

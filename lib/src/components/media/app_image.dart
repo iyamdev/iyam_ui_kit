@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -49,7 +47,7 @@ class AppImage extends StatelessWidget {
           width: width,
           height: height,
           fit: fit,
-          errorBuilder: (_, __, ___) => const AppImagePlaceholder(),
+          errorBuilder: (_, _, _) => const AppImagePlaceholder(),
         );
 
       case AppImageType.cachedNetwork:
@@ -58,8 +56,8 @@ class AppImage extends StatelessWidget {
           width: width,
           height: height,
           fit: fit,
-          placeholder: (_, __) => const AppImagePlaceholder(),
-          errorWidget: (_, __, ___) => const AppImagePlaceholder(),
+          placeholder: (_, _) => const AppImagePlaceholder(),
+          errorWidget: (_, _, _) => const AppImagePlaceholder(),
         );
 
       case AppImageType.file:

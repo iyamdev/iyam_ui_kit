@@ -15,8 +15,6 @@ class AppThemeFactory {
       onSecondary: Colors.white,
       error: style.colors.error,
       onError: Colors.white,
-      background: style.colors.background,
-      onBackground: style.colors.textPrimary,
       surface: style.colors.surface,
       onSurface: style.colors.textPrimary,
     );

@@ -81,9 +81,6 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = context.style;
-    final colors = style.colors;
-
     final isDisabled = onPressed == null || isLoading;
 
     final ButtonStyle resolvedStyle = _resolveStyle(context);
