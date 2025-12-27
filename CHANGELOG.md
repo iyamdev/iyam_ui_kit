@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.1.1] - 2025-12-27
+
+### Added
+- `onTap` dan `readOnly` pada `AppTextFormField` untuk mendukung interaksi tambahan tanpa input manual.
+
+### Changed
+- `AppSelectField` kini menggunakan `readOnly: true` agar tetap interaktif melalui `onTap` namun tidak dapat diketik langsung.
+
+---
+
 ## [0.1.0] - 2025-12-27
 
 ### Added
