@@ -7,17 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [0.2.0] - 2026-01-03
+## [Unreleased]
+
+## [0.2.1] - 2026-01-03
 
 ### Added
 
 - Added `primaryDark`, `primaryLight`, `secondaryDark`, and `secondaryLight` to `AppColors` for better color variant support.
 - Updated `ThemePresets.squareGovernment` to include consistent dark/light variants for primary and secondary colors.
+- Date picker & select components
+- Responsive layout helpers
 
 ### Changed
 
 - `AppColors` constructor now requires `primaryDark`, `primaryLight`, `secondaryDark`, and `secondaryLight`.
 - `AppColors.corporate()` factory updated with default values for new color variants.
+- Improve theme customization API
 
 ---
 

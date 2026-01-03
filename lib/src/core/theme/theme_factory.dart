@@ -28,6 +28,9 @@ class AppThemeFactory {
       useMaterial3: true,
       brightness: brightness,
       colorScheme: colorScheme,
+      primaryColor: style.colors.primary,
+      primaryColorDark: style.colors.primaryDark,
+      primaryColorLight: style.colors.primaryLight,
 
       // === GLOBAL FONT ===
       fontFamily: style.typography.fontFamily,
