@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   final Color primary;
+  final Color primaryDark;
+  final Color primaryLight;
   final Color secondary;
+  final Color secondaryDark;
+  final Color secondaryLight;
   final Color accent;
 
   final Color success;
@@ -21,7 +25,11 @@ class AppColors {
 
   const AppColors({
     required this.primary,
+    required this.primaryDark,
+    required this.primaryLight,
     required this.secondary,
+    required this.secondaryDark,
+    required this.secondaryLight,
     required this.accent,
     required this.success,
     required this.warning,
@@ -38,7 +46,11 @@ class AppColors {
 
   AppColors copyWith({
     Color? primary,
+    Color? primaryDark,
+    Color? primaryLight,
     Color? secondary,
+    Color? secondaryDark,
+    Color? secondaryLight,
     Color? accent,
     Color? success,
     Color? warning,
@@ -54,7 +66,11 @@ class AppColors {
   }) {
     return AppColors(
       primary: primary ?? this.primary,
+      primaryDark: primaryDark ?? this.primaryDark,
+      primaryLight: primaryLight ?? this.primaryLight,
       secondary: secondary ?? this.secondary,
+      secondaryDark: secondaryDark ?? this.secondaryDark,
+      secondaryLight: secondaryLight ?? this.secondaryLight,
       accent: accent ?? this.accent,
       success: success ?? this.success,
       warning: warning ?? this.warning,
@@ -70,9 +86,13 @@ class AppColors {
     );
   }
 
-  factory AppColors.corporate() => const AppColors(
+  factory AppColors.base() => const AppColors(
     primary: Color(0xFF2563EB),
+    primaryDark: Color(0xFF1D4ED8),
+    primaryLight: Color(0xFF3B82F6),
     secondary: Color(0xFF4F46E5),
+    secondaryDark: Color(0xFF4338CA),
+    secondaryLight: Color(0xFF6366F1),
     accent: Color(0xFF06B6D4),
     success: Color(0xFF22C55E),
     warning: Color(0xFFFACC15),

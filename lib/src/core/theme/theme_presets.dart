@@ -12,7 +12,7 @@ class ThemePresets {
     return AppThemeFactory.create(
       brightness: Brightness.light,
       style: AppStyle(
-        colors: AppColors.corporate(),
+        colors: AppColors.base(),
         radius: AppRadius.rounded(),
         typography: AppTypography.defaultFont(),
         borders: AppBorders.defaultBorder(),
@@ -27,9 +27,13 @@ class ThemePresets {
     return AppThemeFactory.create(
       brightness: Brightness.light,
       style: AppStyle(
-        colors: AppColors.corporate().copyWith(
+        colors: AppColors.base().copyWith(
           primary: const Color(0xFF166534),
+          primaryDark: const Color(0xFF14532D),
+          primaryLight: const Color(0xFF15803D),
           secondary: const Color(0xFF15803D),
+          secondaryDark: const Color(0xFF166534),
+          secondaryLight: const Color(0xFF16A34A),
         ),
         radius: AppRadius.square(),
         typography: AppTypography.defaultFont(),

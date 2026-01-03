@@ -7,12 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.2.0] - 2026-01-03
+
+### Added
+
+- Added `primaryDark`, `primaryLight`, `secondaryDark`, and `secondaryLight` to `AppColors` for better color variant support.
+- Updated `ThemePresets.squareGovernment` to include consistent dark/light variants for primary and secondary colors.
+
+### Changed
+
+- `AppColors` constructor now requires `primaryDark`, `primaryLight`, `secondaryDark`, and `secondaryLight`.
+- `AppColors.corporate()` factory updated with default values for new color variants.
+
+---
+
 ## [0.1.1] - 2025-12-27
 
 ### Added
+
 - `onTap` dan `readOnly` pada `AppTextFormField` untuk mendukung interaksi tambahan tanpa input manual.
 
 ### Changed
+
 - `AppSelectField` kini menggunakan `readOnly: true` agar tetap interaktif melalui `onTap` namun tidak dapat diketik langsung.
 
 ---
@@ -47,16 +63,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   - Badge, label, chips
   - Shimmer / skeleton loading
 - Dark mode auto adaptation
-
----
-
-## [Unreleased]
-
-### Added
-
-- Date picker & select components
-- Responsive layout helpers
-
-### Changed
-
-- Improve theme customization API

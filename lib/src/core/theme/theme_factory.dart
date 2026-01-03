@@ -7,12 +7,17 @@ class AppThemeFactory {
     required Brightness brightness,
     required AppStyle style,
   }) {
-    final colorScheme = ColorScheme(
+    final colorScheme = ColorScheme.fromSeed(
       brightness: brightness,
+      seedColor: style.colors.primary,
       primary: style.colors.primary,
       onPrimary: Colors.white,
+      primaryContainer: style.colors.primaryLight,
+      onPrimaryContainer: Colors.white,
       secondary: style.colors.secondary,
       onSecondary: Colors.white,
+      secondaryContainer: style.colors.secondaryLight,
+      onSecondaryContainer: Colors.white,
       error: style.colors.error,
       onError: Colors.white,
       surface: style.colors.surface,
