@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.4] - 2026-01-04
+
+### Added
+
+- **Feedback**: Added `AppToast`, `AppBadge`, `AppChip`, and `AppLabel`.
+- **Surfaces**: Added `AppCard`.
+- **Media**: Added `AppAvatar`, `AppImage`, and `AppImageGrid`.
+- **States**: Added `AppShimmer`, `AppSkeleton`, `AppEmptyState`, `AppErrorState`, and `AppLoadingState`.
+- **Navigation**: Added `AppAppBar` and `AppSidebar`.
+- **Overlays**: Added `AppBottomSheet`, `AppDialog`, and `AppConfirmDialog`.
+- **Lists**: Added `AppListTile`, `AppSectionHeader`, and `AppDivider`.
+- **Forms**: Added `AppFormLayout` and `AppFormField`.
+
 ## [0.2.3] - 2026-01-03
 
 ### Added

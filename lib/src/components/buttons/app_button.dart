@@ -113,11 +113,16 @@ class AppButton extends StatelessWidget {
   // ===== CONTENT =====
 
   Widget _buildContent(BuildContext context) {
+    final style = context.style;
+    final colors = style.colors;
     if (isLoading) {
-      return const SizedBox(
+      return SizedBox(
         width: 18,
         height: 18,
-        child: CircularProgressIndicator(strokeWidth: 2),
+        child: CircularProgressIndicator(
+          strokeWidth: 2,
+          color: variant.foregroundColor(colors),
+        ),
       );
     }
 
@@ -157,33 +162,33 @@ class AppButton extends StatelessWidget {
       case AppButtonVariant.primary:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: colors.primary,
-          foregroundColor: Colors.white,
+          backgroundColor: variant.backgroundColor(colors),
+          foregroundColor: variant.foregroundColor(colors),
           shape: shape,
         );
 
       case AppButtonVariant.secondary:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: colors.secondary,
-          foregroundColor: Colors.white,
+          backgroundColor: variant.backgroundColor(colors),
+          foregroundColor: variant.foregroundColor(colors),
           shape: shape,
         );
 
       case AppButtonVariant.danger:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: colors.error,
-          foregroundColor: Colors.white,
+          backgroundColor: variant.backgroundColor(colors),
+          foregroundColor: variant.foregroundColor(colors),
           shape: shape,
         );
 
       case AppButtonVariant.outline:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: Colors.transparent,
-          foregroundColor: colors.primary,
-          side: BorderSide(color: colors.primary),
+          backgroundColor: variant.backgroundColor(colors),
+          foregroundColor: variant.foregroundColor(colors),
+          side: BorderSide(color: variant.foregroundColor(colors)),
           elevation: 0,
           shape: shape,
         );
@@ -191,8 +196,8 @@ class AppButton extends StatelessWidget {
       case AppButtonVariant.ghost:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: Colors.transparent,
-          foregroundColor: colors.primary,
+          backgroundColor: variant.backgroundColor(colors),
+          foregroundColor: variant.foregroundColor(colors),
           elevation: 0,
           shape: shape,
         );
