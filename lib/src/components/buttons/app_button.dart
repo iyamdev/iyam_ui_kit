@@ -14,6 +14,7 @@ class AppButton extends StatelessWidget {
   final bool isLoading;
   final Widget? leadingIcon;
   final Widget? trailingIcon;
+  final BorderRadius? borderRadius;
 
   const AppButton({
     super.key,
@@ -25,6 +26,7 @@ class AppButton extends StatelessWidget {
     this.isLoading = false,
     this.leadingIcon,
     this.trailingIcon,
+    this.borderRadius,
   });
 
   // ===== FACTORY SHORTCUTS =====
@@ -34,12 +36,14 @@ class AppButton extends StatelessWidget {
     VoidCallback? onPressed,
     AppButtonSize size = AppButtonSize.md,
     bool isLoading = false,
+    BorderRadius? borderRadius,
   }) => AppButton(
     label: label,
     onPressed: onPressed,
     variant: AppButtonVariant.primary,
     size: size,
     isLoading: isLoading,
+    borderRadius: borderRadius,
   );
 
   factory AppButton.danger({
@@ -47,34 +51,40 @@ class AppButton extends StatelessWidget {
     VoidCallback? onPressed,
     AppButtonSize size = AppButtonSize.md,
     bool isLoading = false,
+    BorderRadius? borderRadius,
   }) => AppButton(
     label: label,
     onPressed: onPressed,
     variant: AppButtonVariant.danger,
     size: size,
     isLoading: isLoading,
+    borderRadius: borderRadius,
   );
 
   factory AppButton.outline({
     required String label,
     VoidCallback? onPressed,
     AppButtonSize size = AppButtonSize.md,
+    BorderRadius? borderRadius,
   }) => AppButton(
     label: label,
     onPressed: onPressed,
     variant: AppButtonVariant.outline,
     size: size,
+    borderRadius: borderRadius,
   );
 
   factory AppButton.ghost({
     required String label,
     VoidCallback? onPressed,
     AppButtonSize size = AppButtonSize.md,
+    BorderRadius? borderRadius,
   }) => AppButton(
     label: label,
     onPressed: onPressed,
     variant: AppButtonVariant.ghost,
     size: size,
+    borderRadius: borderRadius,
   );
 
   // ===== BUILD =====
@@ -140,6 +150,9 @@ class AppButton extends StatelessWidget {
     final colors = style.colors;
 
     final EdgeInsets padding = _resolvePadding();
+    final OutlinedBorder shape = RoundedRectangleBorder(
+      borderRadius: borderRadius ?? BorderRadius.circular(style.radius.md),
+    );
 
     switch (variant) {
       case AppButtonVariant.primary:
@@ -147,6 +160,7 @@ class AppButton extends StatelessWidget {
           padding: padding,
           backgroundColor: colors.primary,
           foregroundColor: Colors.white,
+          shape: shape,
         );
 
       case AppButtonVariant.secondary:
@@ -154,6 +168,7 @@ class AppButton extends StatelessWidget {
           padding: padding,
           backgroundColor: colors.secondary,
           foregroundColor: Colors.white,
+          shape: shape,
         );
 
       case AppButtonVariant.danger:
@@ -161,6 +176,7 @@ class AppButton extends StatelessWidget {
           padding: padding,
           backgroundColor: colors.error,
           foregroundColor: Colors.white,
+          shape: shape,
         );
 
       case AppButtonVariant.outline:
@@ -170,6 +186,7 @@ class AppButton extends StatelessWidget {
           foregroundColor: colors.primary,
           side: BorderSide(color: colors.primary),
           elevation: 0,
+          shape: shape,
         );
 
       case AppButtonVariant.ghost:
@@ -178,6 +195,7 @@ class AppButton extends StatelessWidget {
           backgroundColor: Colors.transparent,
           foregroundColor: colors.primary,
           elevation: 0,
+          shape: shape,
         );
     }
   }

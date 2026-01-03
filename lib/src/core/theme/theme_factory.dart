@@ -55,7 +55,7 @@ class AppThemeFactory {
           elevation: WidgetStateProperty.all(AppElevation.md),
           shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(style.radius.md),
+              borderRadius: BorderRadius.circular(style.radius.button),
             ),
           ),
         ),
@@ -65,7 +65,7 @@ class AppThemeFactory {
       inputDecorationTheme: InputDecorationTheme(
         contentPadding: style.inputPadding,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(style.radius.sm),
+          borderRadius: BorderRadius.circular(style.radius.input),
           borderSide: BorderSide(
             color: style.colors.border,
             width: style.borders.thin,
@@ -77,7 +77,7 @@ class AppThemeFactory {
       cardTheme: CardThemeData(
         elevation: AppElevation.sm,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(style.radius.md),
+          borderRadius: BorderRadius.circular(style.radius.card),
         ),
         color: style.colors.surface,
       ),
