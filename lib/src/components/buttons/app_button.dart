@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../core/extensions/context_extension.dart';
-import '../../core/tokens/opacity.dart';
 import '../../core/tokens/spacing.dart';
 import 'app_button_variant.dart';
 import 'app_button_size.dart';
@@ -95,12 +94,15 @@ class AppButton extends StatelessWidget {
 
     final ButtonStyle resolvedStyle = _resolveStyle(context);
 
-    final Widget content = _buildContent(context, isDisabled: isDisabled);
+    final Widget content = _buildContent(context);
 
-    final Widget button = ElevatedButton(
-      onPressed: isDisabled ? null : onPressed,
-      style: resolvedStyle,
-      child: content,
+    final Widget button = IgnorePointer(
+      ignoring: isDisabled,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: resolvedStyle,
+        child: content,
+      ),
     );
 
     return isFullWidth
@@ -110,7 +112,7 @@ class AppButton extends StatelessWidget {
 
   // ===== CONTENT =====
 
-  Widget _buildContent(BuildContext context, {required bool isDisabled}) {
+  Widget _buildContent(BuildContext context) {
     if (isLoading) {
       return const SizedBox(
         width: 18,
@@ -133,13 +135,10 @@ class AppButton extends StatelessWidget {
       children.add(trailingIcon!);
     }
 
-    return Opacity(
-      opacity: isDisabled ? AppOpacity.disabled : 1,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: children,
-      ),
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: children,
     );
   }
 
