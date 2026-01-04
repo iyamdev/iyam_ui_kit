@@ -164,6 +164,8 @@ class AppButton extends StatelessWidget {
           padding: padding,
           backgroundColor: variant.backgroundColor(colors),
           foregroundColor: variant.foregroundColor(colors),
+          disabledBackgroundColor: colors.disabled,
+          disabledForegroundColor: Colors.white,
           shape: shape,
         );
 
@@ -172,6 +174,8 @@ class AppButton extends StatelessWidget {
           padding: padding,
           backgroundColor: variant.backgroundColor(colors),
           foregroundColor: variant.foregroundColor(colors),
+          disabledBackgroundColor: colors.disabled,
+          disabledForegroundColor: Colors.white,
           shape: shape,
         );
 
@@ -180,6 +184,8 @@ class AppButton extends StatelessWidget {
           padding: padding,
           backgroundColor: variant.backgroundColor(colors),
           foregroundColor: variant.foregroundColor(colors),
+          disabledBackgroundColor: colors.disabled,
+          disabledForegroundColor: Colors.white,
           shape: shape,
         );
 
@@ -188,7 +194,12 @@ class AppButton extends StatelessWidget {
           padding: padding,
           backgroundColor: variant.backgroundColor(colors),
           foregroundColor: variant.foregroundColor(colors),
-          side: BorderSide(color: variant.foregroundColor(colors)),
+          side: BorderSide(
+            color: onPressed != null
+                ? variant.foregroundColor(colors)
+                : colors.disabled,
+          ),
+          disabledForegroundColor: colors.disabled,
           elevation: 0,
           shape: shape,
         );
@@ -198,6 +209,7 @@ class AppButton extends StatelessWidget {
           padding: padding,
           backgroundColor: variant.backgroundColor(colors),
           foregroundColor: variant.foregroundColor(colors),
+          disabledForegroundColor: colors.disabled,
           elevation: 0,
           shape: shape,
         );
