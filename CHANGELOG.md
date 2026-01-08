@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-## [0.2.5] - 2026-01-04
+## [0.2.6] - 2026-01-08
 
 ### Added
 
@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - **Overlays**: Added `AppBottomSheet`, `AppDialog`, and `AppConfirmDialog`.
 - **Lists**: Added `AppListTile`, `AppSectionHeader`, and `AppDivider`.
 - **Forms**: Added `AppFormLayout` and `AppFormField`.
+- **Buttons**: Added `AppButton` with primary, secondary, outline, and disabled variants.
 
 ## [0.2.3] - 2026-01-03
 

@@ -14,6 +14,8 @@ class AppButton extends StatelessWidget {
   final Widget? leadingIcon;
   final Widget? trailingIcon;
   final BorderRadius? borderRadius;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
 
   const AppButton({
     super.key,
@@ -26,6 +28,8 @@ class AppButton extends StatelessWidget {
     this.leadingIcon,
     this.trailingIcon,
     this.borderRadius,
+    this.backgroundColor,
+    this.foregroundColor,
   });
 
   // ===== FACTORY SHORTCUTS =====
@@ -36,6 +40,8 @@ class AppButton extends StatelessWidget {
     AppButtonSize size = AppButtonSize.md,
     bool isLoading = false,
     BorderRadius? borderRadius,
+    Color? backgroundColor,
+    Color? foregroundColor,
   }) => AppButton(
     label: label,
     onPressed: onPressed,
@@ -43,6 +49,8 @@ class AppButton extends StatelessWidget {
     size: size,
     isLoading: isLoading,
     borderRadius: borderRadius,
+    backgroundColor: backgroundColor,
+    foregroundColor: foregroundColor,
   );
 
   factory AppButton.danger({
@@ -51,6 +59,8 @@ class AppButton extends StatelessWidget {
     AppButtonSize size = AppButtonSize.md,
     bool isLoading = false,
     BorderRadius? borderRadius,
+    Color? backgroundColor,
+    Color? foregroundColor,
   }) => AppButton(
     label: label,
     onPressed: onPressed,
@@ -58,6 +68,8 @@ class AppButton extends StatelessWidget {
     size: size,
     isLoading: isLoading,
     borderRadius: borderRadius,
+    backgroundColor: backgroundColor,
+    foregroundColor: foregroundColor,
   );
 
   factory AppButton.outline({
@@ -65,12 +77,16 @@ class AppButton extends StatelessWidget {
     VoidCallback? onPressed,
     AppButtonSize size = AppButtonSize.md,
     BorderRadius? borderRadius,
+    Color? backgroundColor,
+    Color? foregroundColor,
   }) => AppButton(
     label: label,
     onPressed: onPressed,
     variant: AppButtonVariant.outline,
     size: size,
     borderRadius: borderRadius,
+    backgroundColor: backgroundColor,
+    foregroundColor: foregroundColor,
   );
 
   factory AppButton.ghost({
@@ -78,12 +94,16 @@ class AppButton extends StatelessWidget {
     VoidCallback? onPressed,
     AppButtonSize size = AppButtonSize.md,
     BorderRadius? borderRadius,
+    Color? backgroundColor,
+    Color? foregroundColor,
   }) => AppButton(
     label: label,
     onPressed: onPressed,
     variant: AppButtonVariant.ghost,
     size: size,
     borderRadius: borderRadius,
+    backgroundColor: backgroundColor,
+    foregroundColor: foregroundColor,
   );
 
   // ===== BUILD =====
@@ -158,12 +178,16 @@ class AppButton extends StatelessWidget {
       borderRadius: borderRadius ?? BorderRadius.circular(style.radius.md),
     );
 
+    // If custom colors are provided, use them. Otherwise, use variant colors.
+    // Note: for outline/ghost, if backgroundColor is null, it defaults to transparent via variant logic usually,
+    // but here we want to allow override.
+
     switch (variant) {
       case AppButtonVariant.primary:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: variant.backgroundColor(colors),
-          foregroundColor: variant.foregroundColor(colors),
+          backgroundColor: backgroundColor ?? variant.backgroundColor(colors),
+          foregroundColor: foregroundColor ?? variant.foregroundColor(colors),
           disabledBackgroundColor: colors.disabled,
           disabledForegroundColor: Colors.white,
           shape: shape,
@@ -172,8 +196,8 @@ class AppButton extends StatelessWidget {
       case AppButtonVariant.secondary:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: variant.backgroundColor(colors),
-          foregroundColor: variant.foregroundColor(colors),
+          backgroundColor: backgroundColor ?? variant.backgroundColor(colors),
+          foregroundColor: foregroundColor ?? variant.foregroundColor(colors),
           disabledBackgroundColor: colors.disabled,
           disabledForegroundColor: Colors.white,
           shape: shape,
@@ -182,22 +206,21 @@ class AppButton extends StatelessWidget {
       case AppButtonVariant.danger:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: variant.backgroundColor(colors),
-          foregroundColor: variant.foregroundColor(colors),
+          backgroundColor: backgroundColor ?? variant.backgroundColor(colors),
+          foregroundColor: foregroundColor ?? variant.foregroundColor(colors),
           disabledBackgroundColor: colors.disabled,
           disabledForegroundColor: Colors.white,
           shape: shape,
         );
 
       case AppButtonVariant.outline:
+        final fgColor = foregroundColor ?? variant.foregroundColor(colors);
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: variant.backgroundColor(colors),
-          foregroundColor: variant.foregroundColor(colors),
+          backgroundColor: backgroundColor ?? variant.backgroundColor(colors),
+          foregroundColor: fgColor,
           side: BorderSide(
-            color: onPressed != null
-                ? variant.foregroundColor(colors)
-                : colors.disabled,
+            color: onPressed != null ? fgColor : colors.disabled,
           ),
           disabledForegroundColor: colors.disabled,
           elevation: 0,
@@ -207,8 +230,8 @@ class AppButton extends StatelessWidget {
       case AppButtonVariant.ghost:
         return ElevatedButton.styleFrom(
           padding: padding,
-          backgroundColor: variant.backgroundColor(colors),
-          foregroundColor: variant.foregroundColor(colors),
+          backgroundColor: backgroundColor ?? variant.backgroundColor(colors),
+          foregroundColor: foregroundColor ?? variant.foregroundColor(colors),
           disabledForegroundColor: colors.disabled,
           elevation: 0,
           shape: shape,
